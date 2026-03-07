@@ -16,7 +16,19 @@ The focus is on two performance-critical Transformer components:
 - Precision and quantization analysis (FP32, BF16)
 
 ## Hardware Target
-- AWS Trainium (Neuron Core v2)
+- AWS Trainium / Trainium2 (`trn1`, `trn2`)
+- NKI kernels in this repo are written with `nl.tile_size` values and run on
+  NeuronCore-v2/v3, but for `trn2` you should use a recent Neuron SDK release.
+
+## TRN2 Notes
+- NKI supports `trn2`; update Neuron SDK to a version that includes Trainium2
+  NKI support.
+- If you want to force compile target, set:
+  `NEURON_CC_FLAGS="--target=trn2"`
+- You can also run:
+  `python benchmarks/attention_benchmark.py --mode benchmark --target trn2`
+  or:
+  `bash scripts/compile_kernels.sh --target trn2`
 - Vector Engine + Scratchpad Buffer (SBUF)
 
 ## Evaluation
