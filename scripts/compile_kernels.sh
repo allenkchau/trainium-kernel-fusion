@@ -44,7 +44,16 @@ echo "[compile] NEURON_CC_FLAGS=${NEURON_CC_FLAGS}"
 echo "[compile] seqlen=${SEQLEN}"
 export SEQLEN_OVERRIDE="${SEQLEN}"
 
-python - <<'PY'
+if command -v python >/dev/null 2>&1; then
+  PYTHON_BIN="python"
+elif command -v python3 >/dev/null 2>&1; then
+  PYTHON_BIN="python3"
+else
+  echo "Neither 'python' nor 'python3' was found in PATH."
+  exit 1
+fi
+
+"${PYTHON_BIN}" - <<'PY'
 import os
 import numpy as np
 

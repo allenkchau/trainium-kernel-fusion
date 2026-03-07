@@ -1,0 +1,496 @@
+{
+  "generated_at_utc": "20260307T073830Z",
+  "config": {
+    "target": "trn2",
+    "d_head": 128,
+    "seqlens": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "profile_seqlen": 1024,
+    "warmup": 5,
+    "iters": 20,
+    "dtypes": [
+      "fp32",
+      "bf16"
+    ]
+  },
+  "latency_throughput": [
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 52.0,
+      "p99_us": 53.0,
+      "seq_per_s_p50": 19230.76923076923,
+      "tok_per_s_p50": 9846153.846153846,
+      "est_tflops_p50": 2.581110153846154,
+      "baseline_hbm_bytes_model": 5242880,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 31.0,
+      "p99_us": 32.0,
+      "seq_per_s_p50": 32258.064516129034,
+      "tok_per_s_p50": 16516129.032258065,
+      "est_tflops_p50": 4.3296041290322576,
+      "baseline_hbm_bytes_model": 5242880,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 1024,
+      "d_head": 128,
+      "p50_us": 107.0,
+      "p99_us": 109.0,
+      "seq_per_s_p50": 9345.794392523365,
+      "tok_per_s_p50": 9570093.457943926,
+      "est_tflops_p50": 5.017485158878505,
+      "baseline_hbm_bytes_model": 18874368,
+      "fused_hbm_bytes_model": 2097152
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 1024,
+      "d_head": 128,
+      "p50_us": 69.0,
+      "p99_us": 71.0,
+      "seq_per_s_p50": 14492.753623188406,
+      "tok_per_s_p50": 14840579.710144928,
+      "est_tflops_p50": 7.780737855072464,
+      "baseline_hbm_bytes_model": 18874368,
+      "fused_hbm_bytes_model": 2097152
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 2048,
+      "d_head": 128,
+      "p50_us": 274.0,
+      "p99_us": 275.0,
+      "seq_per_s_p50": 3649.6350364963505,
+      "tok_per_s_p50": 7474452.554744526,
+      "est_tflops_p50": 7.837531562043796,
+      "baseline_hbm_bytes_model": 71303168,
+      "fused_hbm_bytes_model": 4194304
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 2048,
+      "d_head": 128,
+      "p50_us": 215.0,
+      "p99_us": 218.0,
+      "seq_per_s_p50": 4651.162790697675,
+      "tok_per_s_p50": 9525581.395348838,
+      "est_tflops_p50": 9.988296037209302,
+      "baseline_hbm_bytes_model": 71303168,
+      "fused_hbm_bytes_model": 4194304
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 4096,
+      "d_head": 128,
+      "p50_us": 1137.0,
+      "p99_us": 1140.0,
+      "seq_per_s_p50": 879.5074758135444,
+      "tok_per_s_p50": 3602462.6209322778,
+      "est_tflops_p50": 7.554911690413368,
+      "baseline_hbm_bytes_model": 276824064,
+      "fused_hbm_bytes_model": 8388608
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 4096,
+      "d_head": 128,
+      "p50_us": 839.0,
+      "p99_us": 840.0,
+      "seq_per_s_p50": 1191.8951132300358,
+      "tok_per_s_p50": 4882002.383790227,
+      "est_tflops_p50": 10.238301063170441,
+      "baseline_hbm_bytes_model": 276824064,
+      "fused_hbm_bytes_model": 8388608
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 48.0,
+      "p99_us": 48.0,
+      "seq_per_s_p50": 20833.333333333332,
+      "tok_per_s_p50": 10666666.666666666,
+      "est_tflops_p50": 2.7962026666666664,
+      "baseline_hbm_bytes_model": 4718592,
+      "fused_hbm_bytes_model": 524288
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 28.0,
+      "p99_us": 29.0,
+      "seq_per_s_p50": 35714.28571428572,
+      "tok_per_s_p50": 18285714.285714287,
+      "est_tflops_p50": 4.793490285714286,
+      "baseline_hbm_bytes_model": 4718592,
+      "fused_hbm_bytes_model": 524288
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 1024,
+      "d_head": 128,
+      "p50_us": 96.0,
+      "p99_us": 98.0,
+      "seq_per_s_p50": 10416.666666666666,
+      "tok_per_s_p50": 10666666.666666666,
+      "est_tflops_p50": 5.592405333333333,
+      "baseline_hbm_bytes_model": 17825792,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 1024,
+      "d_head": 128,
+      "p50_us": 60.0,
+      "p99_us": 61.0,
+      "seq_per_s_p50": 16666.666666666668,
+      "tok_per_s_p50": 17066666.666666668,
+      "est_tflops_p50": 8.947848533333334,
+      "baseline_hbm_bytes_model": 17825792,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 2048,
+      "d_head": 128,
+      "p50_us": 260.0,
+      "p99_us": 260.0,
+      "seq_per_s_p50": 3846.153846153846,
+      "tok_per_s_p50": 7876923.076923077,
+      "est_tflops_p50": 8.259552492307693,
+      "baseline_hbm_bytes_model": 69206016,
+      "fused_hbm_bytes_model": 2097152
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 2048,
+      "d_head": 128,
+      "p50_us": 188.0,
+      "p99_us": 189.0,
+      "seq_per_s_p50": 5319.148936170212,
+      "tok_per_s_p50": 10893617.021276595,
+      "est_tflops_p50": 11.422785361702129,
+      "baseline_hbm_bytes_model": 69206016,
+      "fused_hbm_bytes_model": 2097152
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 4096,
+      "d_head": 128,
+      "p50_us": 1035.0,
+      "p99_us": 1037.0,
+      "seq_per_s_p50": 966.1835748792271,
+      "tok_per_s_p50": 3957487.922705314,
+      "est_tflops_p50": 8.299453712077296,
+      "baseline_hbm_bytes_model": 272629760,
+      "fused_hbm_bytes_model": 4194304
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 4096,
+      "d_head": 128,
+      "p50_us": 684.0,
+      "p99_us": 686.0,
+      "seq_per_s_p50": 1461.9883040935672,
+      "tok_per_s_p50": 5988304.093567251,
+      "est_tflops_p50": 12.55838390643275,
+      "baseline_hbm_bytes_model": 272629760,
+      "fused_hbm_bytes_model": 4194304
+    }
+  ],
+  "precision_tradeoffs": [
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 4.559755325317383e-06,
+      "mean_abs_err": 4.0638624909661303e-07,
+      "p99_abs_err": 1.7583370208740234e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 4.6193599700927734e-06,
+      "mean_abs_err": 4.0711972815188346e-07,
+      "p99_abs_err": 1.7583370208740234e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 1024,
+      "d_head": 128,
+      "max_abs_err": 4.6156346797943115e-06,
+      "mean_abs_err": 4.1766315916902386e-07,
+      "p99_abs_err": 1.7881393432617188e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 1024,
+      "d_head": 128,
+      "max_abs_err": 4.544854164123535e-06,
+      "mean_abs_err": 4.1802172745519783e-07,
+      "p99_abs_err": 1.7881393432617188e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 2048,
+      "d_head": 128,
+      "max_abs_err": 5.0067901611328125e-06,
+      "mean_abs_err": 4.0563057268627745e-07,
+      "p99_abs_err": 1.7285346984863281e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 2048,
+      "d_head": 128,
+      "max_abs_err": 4.9173831939697266e-06,
+      "mean_abs_err": 4.060352125634381e-07,
+      "p99_abs_err": 1.7285346984863281e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 4096,
+      "d_head": 128,
+      "max_abs_err": 4.6193599700927734e-06,
+      "mean_abs_err": 3.877879919400584e-07,
+      "p99_abs_err": 1.69314444065094e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 4096,
+      "d_head": 128,
+      "max_abs_err": 4.678964614868164e-06,
+      "mean_abs_err": 3.8806012980785454e-07,
+      "p99_abs_err": 1.6987323760986328e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 0.01119530200958252,
+      "mean_abs_err": 0.001063469098880887,
+      "p99_abs_err": 0.004247726872563362,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 0.01119530200958252,
+      "mean_abs_err": 0.0010634521022439003,
+      "p99_abs_err": 0.004247726872563362,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 1024,
+      "d_head": 128,
+      "max_abs_err": 0.010966718196868896,
+      "mean_abs_err": 0.001053221640177071,
+      "p99_abs_err": 0.0045029595494270325,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 1024,
+      "d_head": 128,
+      "max_abs_err": 0.010966718196868896,
+      "mean_abs_err": 0.0010532254818826914,
+      "p99_abs_err": 0.0045029595494270325,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 2048,
+      "d_head": 128,
+      "max_abs_err": 0.013277672231197357,
+      "mean_abs_err": 0.001004330813884735,
+      "p99_abs_err": 0.004316661972552538,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 2048,
+      "d_head": 128,
+      "max_abs_err": 0.013277672231197357,
+      "mean_abs_err": 0.0010043301153928041,
+      "p99_abs_err": 0.00431659584864974,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 4096,
+      "d_head": 128,
+      "max_abs_err": 0.00958433747291565,
+      "mean_abs_err": 0.0009051911765709519,
+      "p99_abs_err": 0.0038554200436919928,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 4096,
+      "d_head": 128,
+      "max_abs_err": 0.00958433747291565,
+      "mean_abs_err": 0.0009051945526152849,
+      "p99_abs_err": 0.0038555667269974947,
+      "allclose_atol_1e2": true
+    }
+  ],
+  "speedups": [
+    {
+      "dtype": "fp32",
+      "seqlen": 512,
+      "p50_speedup_x": 1.6774193548387097,
+      "tok_per_s_speedup_x": 1.6774193548387097,
+      "hbm_model_reduction_x": 5.0
+    },
+    {
+      "dtype": "fp32",
+      "seqlen": 1024,
+      "p50_speedup_x": 1.5507246376811594,
+      "tok_per_s_speedup_x": 1.5507246376811594,
+      "hbm_model_reduction_x": 9.0
+    },
+    {
+      "dtype": "fp32",
+      "seqlen": 2048,
+      "p50_speedup_x": 1.2744186046511627,
+      "tok_per_s_speedup_x": 1.2744186046511627,
+      "hbm_model_reduction_x": 17.0
+    },
+    {
+      "dtype": "fp32",
+      "seqlen": 4096,
+      "p50_speedup_x": 1.3551847437425506,
+      "tok_per_s_speedup_x": 1.3551847437425508,
+      "hbm_model_reduction_x": 33.0
+    },
+    {
+      "dtype": "bf16",
+      "seqlen": 512,
+      "p50_speedup_x": 1.7142857142857142,
+      "tok_per_s_speedup_x": 1.7142857142857146,
+      "hbm_model_reduction_x": 9.0
+    },
+    {
+      "dtype": "bf16",
+      "seqlen": 1024,
+      "p50_speedup_x": 1.6,
+      "tok_per_s_speedup_x": 1.6000000000000003,
+      "hbm_model_reduction_x": 17.0
+    },
+    {
+      "dtype": "bf16",
+      "seqlen": 2048,
+      "p50_speedup_x": 1.3829787234042554,
+      "tok_per_s_speedup_x": 1.3829787234042552,
+      "hbm_model_reduction_x": 33.0
+    },
+    {
+      "dtype": "bf16",
+      "seqlen": 4096,
+      "p50_speedup_x": 1.513157894736842,
+      "tok_per_s_speedup_x": 1.513157894736842,
+      "hbm_model_reduction_x": 65.0
+    }
+  ],
+  "profile_summaries": [
+    {
+      "kernel": "baseline",
+      "dtype": "fp32",
+      "seqlen": 1024,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s1024/baseline.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s1024/baseline_exec_2.ntff",
+      "cycles_sum": 131318128,
+      "events_sum": 1487,
+      "dma_queues_sum": 51
+    },
+    {
+      "kernel": "fused",
+      "dtype": "fp32",
+      "seqlen": 1024,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s1024/fused.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s1024/fused_exec_2.ntff",
+      "cycles_sum": 86629864,
+      "events_sum": 937,
+      "dma_queues_sum": 35
+    },
+    {
+      "kernel": "baseline",
+      "dtype": "bf16",
+      "seqlen": 1024,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s1024/baseline.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s1024/baseline_exec_2.ntff",
+      "cycles_sum": 116396485,
+      "events_sum": 1507,
+      "dma_queues_sum": 51
+    },
+    {
+      "kernel": "fused",
+      "dtype": "bf16",
+      "seqlen": 1024,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s1024/fused.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s1024/fused_exec_2.ntff",
+      "cycles_sum": 80136542,
+      "events_sum": 957,
+      "dma_queues_sum": 35
+    }
+  ]
+}

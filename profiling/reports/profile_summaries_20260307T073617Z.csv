@@ -1,0 +1,5 @@
+cycles_sum,d_head,dma_queues_sum,dtype,events_sum,kernel,neff_path,ntff_path,seqlen
+73048219,128,51,fp32,895,baseline,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s512/baseline.neff,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s512/baseline_exec_2.ntff,512
+51868252,128,35,fp32,761,fused,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s512/fused.neff,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s512/fused_exec_2.ntff,512
+68429059,128,51,bf16,915,baseline,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s512/baseline.neff,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s512/baseline_exec_2.ntff,512
+50579920,128,35,bf16,775,fused,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s512/fused.neff,/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s512/fused_exec_2.ntff,512

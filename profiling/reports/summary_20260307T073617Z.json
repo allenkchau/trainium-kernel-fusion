@@ -1,0 +1,175 @@
+{
+  "generated_at_utc": "20260307T073617Z",
+  "config": {
+    "target": "trn2",
+    "d_head": 128,
+    "seqlens": [
+      512
+    ],
+    "profile_seqlen": 512,
+    "warmup": 3,
+    "iters": 10,
+    "dtypes": [
+      "fp32",
+      "bf16"
+    ]
+  },
+  "latency_throughput": [
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 52.0,
+      "p99_us": 52.0,
+      "seq_per_s_p50": 19230.76923076923,
+      "tok_per_s_p50": 9846153.846153846,
+      "est_tflops_p50": 2.581110153846154,
+      "baseline_hbm_bytes_model": 5242880,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 32.0,
+      "p99_us": 32.0,
+      "seq_per_s_p50": 31250.0,
+      "tok_per_s_p50": 16000000.0,
+      "est_tflops_p50": 4.194304,
+      "baseline_hbm_bytes_model": 5242880,
+      "fused_hbm_bytes_model": 1048576
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 47.0,
+      "p99_us": 47.0,
+      "seq_per_s_p50": 21276.59574468085,
+      "tok_per_s_p50": 10893617.021276595,
+      "est_tflops_p50": 2.855696340425532,
+      "baseline_hbm_bytes_model": 4718592,
+      "fused_hbm_bytes_model": 524288
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "p50_us": 28.0,
+      "p99_us": 28.0,
+      "seq_per_s_p50": 35714.28571428572,
+      "tok_per_s_p50": 18285714.285714287,
+      "est_tflops_p50": 4.793490285714286,
+      "baseline_hbm_bytes_model": 4718592,
+      "fused_hbm_bytes_model": 524288
+    }
+  ],
+  "precision_tradeoffs": [
+    {
+      "dtype": "fp32",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 4.559755325317383e-06,
+      "mean_abs_err": 4.0638624909661303e-07,
+      "p99_abs_err": 1.7583370208740234e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "fp32",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 4.6193599700927734e-06,
+      "mean_abs_err": 4.0711972815188346e-07,
+      "p99_abs_err": 1.7583370208740234e-06,
+      "allclose_atol_1e2": true
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "baseline",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 0.01119530200958252,
+      "mean_abs_err": 0.001063469098880887,
+      "p99_abs_err": 0.004247726872563362,
+      "allclose_atol_1e2": false
+    },
+    {
+      "dtype": "bf16",
+      "kernel": "fused",
+      "seqlen": 512,
+      "d_head": 128,
+      "max_abs_err": 0.01119530200958252,
+      "mean_abs_err": 0.0010634521022439003,
+      "p99_abs_err": 0.004247726872563362,
+      "allclose_atol_1e2": false
+    }
+  ],
+  "speedups": [
+    {
+      "dtype": "fp32",
+      "seqlen": 512,
+      "p50_speedup_x": 1.625,
+      "tok_per_s_speedup_x": 1.625,
+      "hbm_model_reduction_x": 5.0
+    },
+    {
+      "dtype": "bf16",
+      "seqlen": 512,
+      "p50_speedup_x": 1.6785714285714286,
+      "tok_per_s_speedup_x": 1.6785714285714288,
+      "hbm_model_reduction_x": 9.0
+    }
+  ],
+  "profile_summaries": [
+    {
+      "kernel": "baseline",
+      "dtype": "fp32",
+      "seqlen": 512,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s512/baseline.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_fp32_s512/baseline_exec_2.ntff",
+      "cycles_sum": 73048219,
+      "events_sum": 895,
+      "dma_queues_sum": 51
+    },
+    {
+      "kernel": "fused",
+      "dtype": "fp32",
+      "seqlen": 512,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s512/fused.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_fp32_s512/fused_exec_2.ntff",
+      "cycles_sum": 51868252,
+      "events_sum": 761,
+      "dma_queues_sum": 35
+    },
+    {
+      "kernel": "baseline",
+      "dtype": "bf16",
+      "seqlen": 512,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s512/baseline.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/baseline_bf16_s512/baseline_exec_2.ntff",
+      "cycles_sum": 68429059,
+      "events_sum": 915,
+      "dma_queues_sum": 51
+    },
+    {
+      "kernel": "fused",
+      "dtype": "bf16",
+      "seqlen": 512,
+      "d_head": 128,
+      "neff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s512/fused.neff",
+      "ntff_path": "/home/ubuntu/trainium-kernel-fusion/profiling/artifacts/fused_bf16_s512/fused_exec_2.ntff",
+      "cycles_sum": 50579920,
+      "events_sum": 775,
+      "dma_queues_sum": 35
+    }
+  ]
+}
