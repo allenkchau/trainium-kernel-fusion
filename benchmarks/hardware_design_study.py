@@ -31,10 +31,10 @@ from kernels.fused.mlp import fused_mlp_pwl
 
 
 # ── Trainium2 specs (from public docs) ──────────────────────────────
-TRN2_PEAK_TFLOPS_FP32 = 47.5     # per NeuronCore, FP32
-TRN2_PEAK_TFLOPS_BF16 = 190.0    # per NeuronCore, BF16
-TRN2_HBM_BW_GB_S = 820.0         # per chip, GB/s (HBM3)
-TRN2_SBUF_KB = 24 * 1024         # 24 MiB SBUF per NeuronCore
+TRN2_PEAK_TFLOPS_FP32 = 20.0      # per NeuronCore-v3, FP32
+TRN2_PEAK_TFLOPS_BF16 = 79.0     # per NeuronCore-v3, BF16
+TRN2_HBM_BW_GB_S = 2900.0        # per chip, GB/s (HBM3, 2.9 TB/s)
+TRN2_SBUF_KB = 28 * 1024         # 28 MiB SBUF per NeuronCore-v3
 
 
 def configure_target():
@@ -104,8 +104,9 @@ def run_sbuf_breakeven(dtype=np.float32):
     dtype_bytes = np.dtype(dtype).itemsize
     dtype_name = "fp32" if dtype == np.float32 else "bf16"
     K, N = 512, 2048
-    # M values: 128 to 4096 stepping by 128 (tile-aligned)
-    M_values = list(range(128, 4096 + 1, 128))
+    # M values: 128 to 10240 stepping by 128 (tile-aligned)
+    # Goes well past 28 MiB SBUF limit (crossover at M≈3584 for FP32)
+    M_values = list(range(128, 10240 + 1, 128))
 
     print(f"\n{'='*70}")
     print(f"  SBUF BREAKEVEN STUDY  ({dtype_name})  K={K} N={N}")
