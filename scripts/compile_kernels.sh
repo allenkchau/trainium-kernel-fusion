@@ -60,6 +60,8 @@ import numpy as np
 from kernels.baseline.attention import baseline_attention
 from kernels.fused.attention import fused_attention
 from kernels.baseline.softmax import softmax_kernel
+from kernels.baseline.mlp_gemm import mlp_baseline
+from kernels.fused.mlp import mlp_fused
 
 seqlen = int(os.environ.get("SEQLEN_OVERRIDE", "512"))
 d_head = 128
@@ -70,10 +72,20 @@ k = ((rng.random((d_head, seqlen)) - 0.5) * 2).astype(np.float32)
 v = ((rng.random((d_head, seqlen)) - 0.5) * 2).astype(np.float32)
 x = rng.normal(size=(1024, seqlen)).astype(np.float32)
 
-# First call triggers NKI JIT compile + execute.
+# Attention kernels
 baseline_attention(q, k, v)
 fused_attention(q, k, v)
 softmax_kernel(x)
-
 print("[compile] PASS: baseline_attention, fused_attention, softmax_kernel")
+
+# MLP kernels
+M, K, N = 256, 512, 1024
+X_mlp = rng.normal(size=(M, K)).astype(np.float32)
+W_mlp = rng.normal(size=(K, N)).astype(np.float32)
+bias_mlp = rng.normal(size=(N,)).astype(np.float32)
+
+mlp_baseline(X_mlp, W_mlp, bias_mlp)
+mlp_fused(X_mlp, W_mlp, bias_mlp, mode="pwl")
+mlp_fused(X_mlp, W_mlp, bias_mlp, mode="taylor")
+print("[compile] PASS: mlp_baseline, fused_mlp_pwl, fused_mlp_taylor")
 PY
